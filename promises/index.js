@@ -1,3 +1,4 @@
+//Creating promise
 const p = new Promise( (resolve, reject) => {
     setTimeout( () => {
         //resolve("Test");
@@ -5,6 +6,7 @@ const p = new Promise( (resolve, reject) => {
     }, 2000);
 });
 
+//Consume promise
 p.
     then(res => console.log('Result', res))
     .catch(err => console.log('Error', err.message));
