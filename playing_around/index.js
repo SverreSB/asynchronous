@@ -1,15 +1,17 @@
 console.log("Before timeout...");
 
-//getting a user object with function getUser, which is supposed to simulate getting data from DB
-const user = getUser(1);
-//Will log "undefined" since there is a timeout in function getUser
-console.log(user);
+
+getUser(1, (user) => {
+    console.log('User', user);
+});
+
 console.log("After timeout...")
 
-function getUser(id){
+//Using a callback to retreive user after timeout, to simulate when retriveing data from DB 
+function getUser(id, callback){
     setTimeout(() => {
         console.log("Reading from database...");
-        return {id: id, name: ""};
+        callback({id: id, name: "Test"});
     }, 2000); 
 }
 
