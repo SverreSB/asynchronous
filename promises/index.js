@@ -1,7 +1,8 @@
 //consume promises
 getUser(1)
     .then(user => getFiles(user.name))
-    .then(files => console.log(files[0]));
+    .then(files => console.log(files[0]))
+    .catch(err => console.log('Error', err.message));
 
 
 // Creating promises in the functions
