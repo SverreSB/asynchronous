@@ -4,7 +4,7 @@ console.log("Before timeout...");
 getUser(1, (user) => {
     console.log('User', user);
     //Getting files after user is retreived
-    getFiles(user, (files) => {
+    getFiles(user.name, (files) => {
         console.log(files);
     });
 });
@@ -20,10 +20,11 @@ function getUser(id, callback){
 }
 
 //For reaturning files if user id === 1
-function getFiles(user, callback){
-    if(user.id === 1){
+function getFiles(username, callback){
+    setTimeout(() => {
+        console.log("Reasing files...")
         callback(['javaDoc.pdf', "learningToCode.pdf", "README.md"]);
-    }
+    }, 3000);
 }
 
 
