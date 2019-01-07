@@ -26,7 +26,8 @@ const Course = mongoose.model('Course', courseSchema);
  async function getCourses(){
     const courses = await Course
     .find({isPublished: true})
-    .sort({name: 1});
+    .sort({name: 1})
+    .select({name: 1, author: 1});
     console.log(courses);
  }
 
